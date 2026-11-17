@@ -352,7 +352,7 @@ The system **MUST** expose an authenticated endpoint returning the calling user'
 
 The system **MUST** support: (1) revoke the current session (logout); (2) revoke a specific other session; (3) revoke all sessions for a user (self "log out everywhere", admin-initiated, or permissions-service-initiated on grant change). Each operation deletes the session record, the linked JWT, the token mapping(s), and the index entries atomically.
 
-Revocation is instant at the authenticator. At the gateway it takes effect within the exchange-cache max-age (default 30 s); any in-flight JWT dies within its own `exp` (at most 300 s).
+Revocation takes effect at the authenticator at once. At the gateway it takes effect within the exchange-cache max-age (default 30 s); any in-flight JWT dies within its own `exp` (at most 300 s).
 
 The admin surface (revoke by user) **MUST** itself require a valid gateway JWT with an authorized role -- the authenticator verifies its own tokens exactly like any downstream service.
 
