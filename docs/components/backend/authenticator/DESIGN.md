@@ -888,7 +888,7 @@ All tunable via Helm values; defaults chosen so everything holds without touchin
 | `authenticator.session_absolute_lifetime_seconds` | `28800` (8 h) | Hard cap across refreshes; after it, re-login. |
 | `authenticator.session_refresh_safety_margin_seconds` | `90` | Server-supplied `refresh_at = expires_at - margin + jitter` tells the SPA when to call refresh. |
 | `authenticator.refresh_jitter_seconds` | `120` | Full jitter window on `refresh_at`, uniform +/- 60 s. Deliberately big: spreads refresh load from NAT'd offices into a uniform trickle *and* keeps an attacker from aligning to the rotation grace window. Late edge keeps >= 30 s of session life with the default margin. |
-| `authenticator.jwt_ttl_seconds` | `300` (5 min) | Linked-JWT validity (`exp - iat`). |
+| `authenticator.jwt_ttl_seconds` | `900` (15 min) | Linked-JWT validity (`exp - iat`). |
 | `authenticator.jwt_reissue_after_seconds` | `240` (4 min) | Serve the stored JWT until this age, then reissue ahead of expiry. Must be `< jwt_ttl`; the difference (60 s) is the guaranteed travel margin. |
 | `authenticator.default_roles` | `["user"]` | Baked into every JWT from day one; replaced by the permissions service's answer at login once that service exists. |
 | `authenticator.idp.refresh_enabled` | `true` | Background refresh of IdP tokens per session. |
