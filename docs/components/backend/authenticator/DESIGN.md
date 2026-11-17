@@ -1157,3 +1157,5 @@ The authenticator's Key Store loads a mounted PKCS#8 **EC P-256** private key (`
 - **Sibling**: [Gateway DESIGN](../gateway/DESIGN.md) -- the nginx edge: routing, exchange cache, subrequest contract consumer
 - **ADRs**: [specs/ADR/](./specs/ADR/) -- 0001 (per-environment IdP, superseded), 0002 (real IdP on deployed stands), 0003 (Keycloak identity broker, configured as code); further decisions captured inline in section 5 until extracted
 - **Decision document**: the nginx + authorization analysis (workspace-level) that mandated this architecture
+
+Session storage is described in [ADR-0099](./specs/ADR/0099-session-store.md).
