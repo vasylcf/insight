@@ -47,7 +47,9 @@ env:
   # upstream since a92339a.
   SCOPE: >-
     --docs-root docs --name insight .
-  MAP_EXTRA: ""
+  # a full judge run at the demo base (6ecd5fe), carried over to later revisions by text
+  MAP_EXTRA: >-
+    --judged eval/judge/contradiction-insight-6ecd5fe.json
   BASE: ${{ github.event.pull_request.base.sha || github.event.before || github.sha }}
   HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
 
